@@ -2,6 +2,7 @@ import React, { useEffect, memo, useMemo } from "react";
 import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import resume from "../assets/AfnanAhmed_Resume.pdf";
 
 // Memoized Components
 const Header = memo(() => (
@@ -129,7 +130,7 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="/path-to-your-cv.pdf" download className="w-full lg:w-auto">
+            <a href={resume} download="AfnanAhmed-Resume.pdf" className="w-full lg:w-auto">
                 <button 
                   data-aos="fade-up"
                   data-aos-duration="800"

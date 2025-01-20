@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./index.css";
 import Home from "./Pages/Hero";
 import About from "./Pages/About";
@@ -10,7 +10,7 @@ import Skills from "./Pages/Skills";
 import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
   return (
@@ -22,15 +22,17 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
       </AnimatePresence>
 
       {!showWelcome && (
-        <>
+        <div className="flex flex-col min-h-screen">
           <Navbar />
           <AnimatedBackground />
-          <Home />
-          <About />
-          <Skills />
-          <Portofolio />
-          <ContactPage />
-          <footer>
+          <div className="flex-grow">
+            <Home />
+            <About />
+            <Skills />
+            <Portofolio />
+            <ContactPage />
+          </div>
+          <footer className="mt-auto">
             <center>
               <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
               <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
@@ -42,28 +44,28 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
               </span>
             </center>
           </footer>
-        </>
+        </div>
       )}
     </>
   );
 };
 
 const ProjectPageLayout = () => (
-  <>
+  <div className="flex flex-col min-h-screen">
     <ProjectDetails />
-    <footer>
+    <footer className="mt-auto">
       <center>
         <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
         <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-          © 2023{" "}
+          © 2024{" "}
           <a href="https://flowbite.com/" className="hover:underline">
-            EkiZR™
+            Afnan™
           </a>
           . All Rights Reserved.
         </span>
       </center>
     </footer>
-  </>
+  </div>
 );
 
 function App() {
@@ -72,7 +74,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
         <Route path="/project/:id" element={<ProjectPageLayout />} />
       </Routes>
     </BrowserRouter>
