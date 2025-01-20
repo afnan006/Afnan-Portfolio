@@ -3,6 +3,7 @@ import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import resume from "../assets/AfnanAhmed_Resume.pdf";
+import PortImage from "../assets/PortImage.png";
 
 // Memoized Components
 const Header = memo(() => (
@@ -51,7 +52,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
           
           <img
-            src="/src/assets/PortImage.png" // Replace with your profile image path
+            src={PortImage} // Replace with your profile image path
             alt="Profile"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"
